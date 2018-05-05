@@ -21,7 +21,7 @@
                   :counter="4"
                   v-model="pid"
                   label="รหัสสินค้า"
-                  disabled=true
+                  disabled
                 ></v-text-field>
               </v-flex>
 
@@ -97,7 +97,8 @@
 
           <v-toolbar color="primary">
             <v-btn color="success" @click="save">Save</v-btn>
-            <v-btn color="error">Cancel</v-btn>
+            <v-btn color="error" @click="cancel">Cancel</v-btn>
+            <v-btn color="warning" @click="deleteProduct">Delete</v-btn>
           </v-toolbar>
           
 
@@ -136,6 +137,7 @@ export default {
     this.star3 = res.data.product.star3
     console.log(res.data.product.star3)
     
+    
     // {
     //   ok: true,
     //   student: {
@@ -158,14 +160,36 @@ export default {
         pid: this.$route.query.pid,
         name: this.name,
         detail: this.detail,
+        price: this.price,
+        img: this.img,
+        star1: this.star1,
+        star2: this.star2,
+        star3: this.star3,
       });
 
       if (!res.data.ok) {
         ///
+        this.$router.push('/product-list')
       } else {
         ///
       }
-    }
+    },
+    cancel() {
+        this.$router.push('/product-list-for-edit')
+    },
+
+    async deleteProduct() {
+        console.log('Delete PID = ' + this.pid)
+        let res = await this.$http.post('/product/delete/' + this.pid)
+
+      if (!res.data.ok) {
+        ///
+        this.$router.push('/product-list')
+      } else {
+        ///
+      }
+
+    },
   }
 };
 </script>

@@ -5,7 +5,7 @@
         <v-card>
           <v-toolbar color="primary">
             <!--v-btn icon-->
-              <v-icon color="white">แก้ไขข้อมูลสินค้า</v-icon>
+              <v-icon color="white">เพิ่มข้อมูลสินค้า</v-icon>
             <!--/v-btn-->
             <v-spacer></v-spacer>
             <v-btn icon>
@@ -96,7 +96,7 @@
 
           <v-toolbar color="primary">
 
-    <v-btn color="success" @click="save">Save</v-btn>
+    <v-btn color="success" @click="post">Save</v-btn>
     <v-btn color="error">Cancel</v-btn>
 
           </v-toolbar>
@@ -123,16 +123,21 @@
       }
     },
     methods: {
-        async save() {
+        async post() {
 
-             console.log(this.$route.query.pid)
+             console.log(this.pid)
              console.log(this.name)
              console.log(this.detail)
 
-            let res = await this.$http.post('/product/save', {
-                pid: this.$route.query.pid,
+            let res = await this.$http.post('/product/add', {
+                pid: this.pid,
                 name: this.name,
-                detail: this.detail
+                detail: this.detail,
+                price: this.price,
+                img: this.img,
+                star1: this.star1,
+                star2: this.star2,
+                star3: this.star3,
             })
              
 
@@ -144,26 +149,7 @@
             
         },
 
-//ติดไว้ก่อน
-                async post() {
 
-             console.log(this.$route.query.pid)
-             console.log(this.name)
-             console.log(this.detail)
-
-            let res = await this.$http.post('/product/save', {
-                pid: this.$route.query.pid,
-                name: this.name,
-                detail: this.detail
-            })
-             
-
-            if (!res.data.ok) {
-                ///
-            } else {
-                ///
-            }
-                },
     },
   }
 </script>

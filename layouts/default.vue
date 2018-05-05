@@ -6,6 +6,7 @@
       app
     >
       <v-list dense>
+
         <v-list-tile @click="doM1">
           <v-list-tile-action>
             <v-icon>home</v-icon>
@@ -14,6 +15,7 @@
             <v-list-tile-title>Home</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+
         <v-list-tile @click="doM2">
           <v-list-tile-action>
             <v-icon>account_box</v-icon>
@@ -22,23 +24,35 @@
             <v-list-tile-title>Login</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+
         <v-list-tile @click="doM3">
           <v-list-tile-action>
             <v-icon>description</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Post</v-list-tile-title>
+            <v-list-tile-title>Post Product</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="doM3">
+
+        <v-list-tile @click="doM4">
           <v-list-tile-action>
             <v-icon>spa</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Product</v-list-tile-title>
+            <v-list-tile-title>Product List</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="doM2">
+
+        <v-list-tile @click="doM5">
+          <v-list-tile-action>
+            <v-icon>receipt</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Edit Product</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+        <v-list-tile @click="doM6">
           <v-list-tile-action>
             <v-icon>contact_mail</v-icon>
           </v-list-tile-action>
@@ -46,6 +60,8 @@
             <v-list-tile-title>Contact</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+
+
       </v-list>
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
@@ -115,10 +131,19 @@ export default {
       this.$router.push('/')
     },
     doM2(){
-      this.$router.push('/test02')
+      this.$router.push('')
     },
     doM3(){
-      this.$router.push('/test03')
+      this.$router.push('/product-post')
+    },
+    doM4(){
+      this.$router.push('/product-list')
+    },
+    doM5(){
+      this.$router.push('/product-list-for-edit')
+    },
+    doM6(){
+
     },
     drawer(){
       
